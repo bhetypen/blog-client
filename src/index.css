@@ -1,0 +1,80 @@
+* {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.btn-black {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-black:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-black:focus,
+.btn-black:active,
+.btn-black:not(.collapsed):not(.disabled) {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-color: #000000;
+    box-shadow: 0 0 0 0.10rem rgba(0, 0, 0, 0.75);
+}
+
+.btn-black:disabled {
+    color: #AAAAAA;
+    background-color: #000000;
+    border-color: #000000;
+    opacity: 0.65;
+}
+
+
+
+.hero-editorial {
+    padding: 5.5rem 0 5rem; /* generous vertical breathing room */
+    background:
+            radial-gradient(1200px 600px at 10% -10%, rgba(255, 183, 197, 0.25), transparent 55%), /* soft pink glow */
+            radial-gradient(900px 500px at 90% 110%, rgba(123, 233, 255, 0.20), transparent 65%), /* aqua pop */
+            #550000; /* still deep, but with a hint of blue for cheer */
+}
+
+
+/* Typographic polish */
+.fw-700 { font-weight: 700; }
+.text-white-70 { color: rgba(255,255,255,0.78); }
+
+/* Subtle premium gradient only on the second line */
+.gradient-ink {
+    background: linear-gradient(90deg, #ffffff 10%, #e9e7ff 45%, #ffdca8 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* Fix title–subhead spacing */
+.hero-editorial .display-2 {
+    line-height: 1.12;
+    margin-bottom: 1.25rem;
+}
+
+/* Keep it a bit tighter on large screens if you want */
+@media (min-width: 992px) {
+    .hero-editorial .display-2 { line-height: 1.1; }
+}
+
+/* Comfortable reading for the subhead */
+.hero-editorial .lead {
+    line-height: 1.6;
+    margin-top: 0.25rem;
+}
+
+
+.hero-editorial .display-2 .gradient-ink {
+    display: inline-block;
+    padding-bottom: 0.15em;
+}
+
+
