@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { usePostStore } from "../../store/postStore";
 import PostCard from "../../components/posts/PostCard";
-import BlogSidebar from "./BlogSidebar";
+import BlogSidebar from "./BlogSideBar";
 
 function Pager({ page, totalPages, onPage }) {
     if (totalPages <= 1) return null;
