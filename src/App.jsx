@@ -19,6 +19,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import EditPostPage from "./pages/user/EditPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import ContactPage from "./pages/Contact.jsx";
+import AddPost from "./pages/user/AddPost.jsx";
 
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
 
                     <Route element={<ProtectedRoute />}>
                         <Route path="/user-dashboard" element={<UserDashboard />} />
+                        <Route path="/add-post" element={<AddPost />} />
                         <Route path="/edit-post/:id" element={<EditPostPage />} />
                     </Route>
 

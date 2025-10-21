@@ -1,5 +1,6 @@
 // src/pages/BlogPage.jsx
 import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { usePostStore } from "../../store/postStore";
 import PostCard from "../../components/posts/PostCard";
 import BlogSidebar from "./BlogSideBar";
@@ -63,7 +64,18 @@ export default function BlogPage() {
             <div className="row">
                 {/* Main column */}
                 <div className="col-lg-8">
-                    <h1 className="display-6 mb-4">Blog Page</h1>
+
+                    {/* Header row with Add Post button */}
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h1 className="display-6 m-0">Blog Page</h1>
+                        <Link
+                            to="/add-post"
+                            className="btn btn-button"
+                            aria-label="Add a new post"
+                        >
+                            + Add Post
+                        </Link>
+                    </div>
 
                     {listLoading && <div className="py-5 text-center text-muted">Loading posts…</div>}
                     {!listLoading && slice.length === 0 && (

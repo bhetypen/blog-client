@@ -1,5 +1,6 @@
 // src/pages/dashboard/UserDashboard.jsx
 import React, { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom"; // ⬅️ add this
 import { usePostStore } from "../../store/postStore";
 import { useAuthStore } from "../../store/authStore";
 import PostCard from "../../components/posts/PostCard";
@@ -16,7 +17,6 @@ export default function UserDashboard() {
         if (user) fetchMyPosts().catch(() => {});
     }, [user, fetchMyPosts]);
 
-    // Filtered posts for sidebar
     const filtered = useMemo(() => {
         if (!myPosts) return [];
         return myPosts.filter(
@@ -35,7 +35,13 @@ export default function UserDashboard() {
             <div className="row">
                 {/* Main column: full PostCards */}
                 <div className="col-lg-8">
-                    <h1 className="mb-4">My Posts</h1>
+                    {/* Header row with Add Post button */}
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h1 className="mb-0">My Posts</h1>
+                        <Link to="/add-post" className="btn btn-black" aria-label="Add a new post">
+                            + Add Post
+                        </Link>
+                    </div>
 
                     {myListLoading && (
                         <div className="text-center text-muted py-5">Loading…</div>
@@ -55,6 +61,13 @@ export default function UserDashboard() {
                 <aside className="col-lg-4 mt-5 mt-lg-0">
                     <div className="sticky-top" style={{ top: "5rem" }}>
                         <div className="border rounded p-3 mb-4">
+                            {/* Optional: small Add Post button in sidebar too */}
+                            <div className="d-grid mb-3">
+                                <Link to="/add-post" className="btn btn-button btn-sm">
+                                    + Add Post
+                                </Link>
+                            </div>
+
                             <h5 className="mb-3">Search My Posts</h5>
                             <input
                                 type="text"
@@ -63,7 +76,7 @@ export default function UserDashboard() {
                                 value={search}
                                 onChange={(e) => {
                                     setSearch(e.target.value);
-                                    setPage(1); // reset page on new search
+                                    setPage(1);
                                 }}
                             />
 
@@ -81,7 +94,6 @@ export default function UserDashboard() {
                                 ))}
                             </ul>
 
-                            {/* Pagination controls */}
                             {totalPages > 1 && (
                                 <nav aria-label="Sidebar pagination">
                                     <ul className="pagination pagination-sm justify-content-center">
